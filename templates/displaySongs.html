@@ -1,0 +1,13 @@
+<html>
+<body>
+  <form action="/">
+    {% for song in recommendationResults %}
+    <h1>{{song['title'] + ' by ' + song['subtitle']}}</h1>
+    {% if song['images'] %}
+      <img src={{song['images']['coverart']}}/>
+    {% endif %}
+    {% endfor %}
+    <input type="submit" value="Return">
+  </form>
+</body>
+</html>

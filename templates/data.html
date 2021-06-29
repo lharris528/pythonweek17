@@ -1,0 +1,18 @@
+<html>
+<body>
+  <p>Here are some songs that could match your song. Which one are you thinking of?</p>
+  {% for song in songData %}
+    <form action="/displaySongs" method="POST">
+      <h2>{{song['track']['title'] + ' by ' + song['track']['subtitle']}}</h2>
+      {% if song['track']['images'] %}
+      <img src={{song['track']['images']['coverart']}}/>
+      {% endif %}
+      <input type="hidden" name="songKey" value={{song['track']['key']}}/>
+      <input type="submit" value="Select">
+    </form>
+  {% endfor %}
+  <form action="/">
+      <input type="submit" value="Go Back">
+  </form>
+</body>
+</html>
